@@ -4,6 +4,13 @@ using TMPro;
 
 public class FrequencyPuzzle : MonoBehaviour
 {
+    public static float[,] HzQuestion = new float[4,3];
+    public static float[,] HzOrigin = new float[4,3]{
+        {2.6f, 0.5f, 57f },    // 0행
+        {0.3f, 1.7f, -36f },    // 1행
+        {2.3f, 2.8f, -16f },    // 2행
+        {1.5f, 0.4f, 32f }     // 3행
+    };
     [SerializeField] private TextMeshProUGUI displayTextA;
     [SerializeField] private TextMeshProUGUI displayTextB;
     [SerializeField] private TextMeshProUGUI displayTextC;
@@ -46,11 +53,31 @@ public class FrequencyPuzzle : MonoBehaviour
 
     void Start()
     {
+
+        int length = 4; // 4
+        int[] indices = { 0, 1, 2, 3 };
+
+        // Fisher-Yates ����
+        for (int i = length - 1; i > 0; i--)
+        {
+            int r = Random.Range(0, i + 1);
+            int temp = indices[i];
+            indices[i] = indices[r];
+            indices[r] = temp;
+        }
+
+        
+        for (int i = 0; i < length; i++)
+        {
+            HzQuestion[i,0] = HzOrigin[indices[i],0];
+            HzQuestion[i,1] = HzOrigin[indices[i],1];
+            HzQuestion[i,2] = HzOrigin[indices[i],2];
+        }
         // 정답 파형을 랜덤하게 설정 (예시)
         // correctAM = Random.Range(0.1f, 2.9f);
         // correctFR = Random.Range(0.1f, 2.9f);
-        correctAM = 2.6f;
-        correctFR = 0.5f;
+        correctAM = HzQuestion[0,0];
+        correctFR = HzQuestion[0,1];
         targetWave.amplitude = correctAM;
         targetWave.frequency = correctFR;
 
@@ -104,14 +131,14 @@ public class FrequencyPuzzle : MonoBehaviour
             // correctAM = Random.Range(0.1f, 2.9f);
             // correctFR = Random.Range(0.1f, 2.9f);
             if (level == 2) {
-                correctAM = 0.3f;
-                correctFR = 1.7f;
+                correctAM = HzQuestion[1,0];
+                correctFR = HzQuestion[1,1];
             } else if (level == 3) {
-                correctAM = 2.3f;
-                correctFR = 2.8f;
+                correctAM = HzQuestion[2,0];
+                correctFR = HzQuestion[2,1];
             } else if (level == 4) {
-                correctAM = 1.5f;
-                correctFR = 0.4f;
+                correctAM = HzQuestion[3,0];
+                correctFR = HzQuestion[3,1];
             }
             
             targetWave.amplitude = correctAM;
@@ -140,10 +167,10 @@ public class FrequencyPuzzle : MonoBehaviour
             if (timer >= 2.5f && !isClear)
             {
                 //HertzResult[level-1] = (int)Mathf.Floor(hertzAM - hertzFR);
-                if (level == 1) HertzResult[level-1] = 57;
-                if (level == 2) HertzResult[level-1] = -36;
-                if (level == 3) HertzResult[level-1] = -16;
-                if (level == 4) HertzResult[level-1] = 32;
+                if (level == 1) HertzResult[level-1] = (int)HzQuestion[0,2];
+                if (level == 2) HertzResult[level-1] = (int)HzQuestion[1,2];
+                if (level == 3) HertzResult[level-1] = (int)HzQuestion[2,2];
+                if (level == 4) HertzResult[level-1] = (int)HzQuestion[3,2];
                 logText.text = "Clear! : " + HertzResult[level - 1];
                 Debug.Log("언어 문제 호출" + (level - 1));
                 LanguageQuestion.SetQuestion(level - 1);
