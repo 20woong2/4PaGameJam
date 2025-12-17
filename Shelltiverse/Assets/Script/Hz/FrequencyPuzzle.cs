@@ -1,11 +1,12 @@
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class FrequencyPuzzle : MonoBehaviour
 {
     [Header("Wave Renderers")]
-    public WaveRenderer targetWave; // 정답 파형 (회색 등)
-    public WaveRenderer playerWave; // 플레이어가 조절하는 파형 (파란색 등)
+    public WaveRenderer targetWave; // 정답 파형 
+    public WaveRenderer playerWave; // 플레이어가 조절하는 파형
 
     [Header("UI Sliders")]
     public Slider ampSlider;
@@ -26,6 +27,17 @@ public class FrequencyPuzzle : MonoBehaviour
     private float timer = 0f;
     private bool isClear = false;
 
+    public TextMeshProUGUI textAM;
+    public TextMeshProUGUI textFR;
+    private float hertzAM;
+    private float hertzFR;
+
+    public float result;
+    public int level = 1;
+
+
+
+
     void Start()
     {
         // 정답 파형을 랜덤하게 설정 (예시)
@@ -34,24 +46,47 @@ public class FrequencyPuzzle : MonoBehaviour
         targetWave.amplitude = correctAM;
         targetWave.frequency = correctFR;
 
-        // 시작하자마자 소리 재생 준비
+        // 시작하자마자 소리 재생
         PlaySound("noise");
         PlaySound("morse");
     }
 
+
+
     void Update()
     {
-        // 1. 슬라이더 값을 플레이어 파형에 적용
+        // 슬라이더 값을 플레이어 파형에 적용
         playerWave.amplitude = ampSlider.value;
         playerWave.frequency = freqSlider.value;
 
-        // 2. 정답 여부 체크
+        // 정답 여부 체크
+        int oldLv = level;
         CheckAnswer();
 
         // 볼륨 조절
         Volume(audioSource);
         Volume(audioSource2);
+
+        // 헤르츠 텍스트 표시
+        hertzAM = (ampSlider.value + 5.0f) * 28 + 23.0f; // 대충 쓸데없는 계산식
+        hertzAM = Mathf.Clamp(hertzAM, 37f, 289f); // 최소최대값 지정
+        textAM.text = hertzAM.ToString("F0") + "Hz"; // 소수점 제거
+
+        hertzFR = (freqSlider.value + 5.0f) * 28 + 23.0f;
+        hertzFR = Mathf.Clamp(hertzFR, 37f, 289f);
+        textFR.text = hertzFR.ToString("F0") + "Hz"; 
+
+        // 레밸 변경 검사
+        if(oldLv != level) 
+        {
+            correctAM = Random.Range(0.1f, 2.9f);
+            correctFR = Random.Range(0.1f, 2.9f);
+            targetWave.amplitude = correctAM;
+            targetWave.frequency = correctFR;
+        }
     }
+
+
 
     void CheckAnswer()
     {
@@ -60,23 +95,32 @@ public class FrequencyPuzzle : MonoBehaviour
 
         if (ampDiff < threshold && freqDiff < threshold)
         {
-            // 정답일 때 실행할 로직 (예: 색깔 변경, 다음 단계 이동 등)
+            // 정답일 때 실행할 로직 
+            timer += Time.deltaTime;
             // playerWave.lineRenderer.startColor = Color.green;
             // playerWave.lineRenderer.endColor = Color.green;
-            // 3초 뒤 클리어
-            timer += Time.deltaTime;
-            if (timer >= 3.0f && !isClear)
+            // 2.5초 뒤 클리어
+            if (timer >= 2.5f && !isClear)
             {
+                result = hertzAM - hertzFR;
+                Debug.Log("Clear! : " + result);
+
+
                 isClear = true;
-                Debug.Log("Clear!");
+                timer = 0f;
+                if (level < 4) level++;
+                else  
+                {
+                    Debug.Log("문제 모두 해결");
+                    audioSource.Stop();
+                    audioSource2.Stop();
+                }
             }
         }
         else
         {
             timer = 0f;
             isClear = false;
-            // playerWave.lineRenderer.startColor = Color.cyan;
-            // playerWave.lineRenderer.endColor = Color.cyan;
         }
     }
 
@@ -84,9 +128,8 @@ public class FrequencyPuzzle : MonoBehaviour
 
      void PlaySound(string sound)
     {
-         if (sound == "noise") 
+        if (sound == "noise") 
         {
-            
             if (noise != null && !audioSource.isPlaying) 
             {
                 Debug.Log("wow");
@@ -105,41 +148,31 @@ public class FrequencyPuzzle : MonoBehaviour
         }
     }
 
+
+
     void Volume(AudioSource audio)
     {
-        // float distance = Mathf.Abs(ampSlider.value - correctAM);
-        // float maxDistance = 3.0f;
-        // float newVolume = (distance / maxDistance);
-
-        // if (audio == audioSource2) 
-        //     newVolume = 1.0f - (distance / maxDistance);
-
-        // audio.volume = Mathf.Clamp(newVolume, 0f, 1f);
-
-        
-
-        // 1. 진폭 차이와 주파수 차이를 각각 구합니다.
+        // 정답이랑 차이 값 구하기
         float ampDiff = Mathf.Abs(ampSlider.value - correctAM);
         float freqDiff = Mathf.Abs(freqSlider.value - correctFR);
 
-        // 2. 두 차이의 합을 구합니다. (이 값이 0에 가까울수록 정답)
+        // 두 차이의 합을 구하기 
         float totalDiff = ampDiff + freqDiff;
 
-        // 3. 최대 오차 범위를 설정합니다. (슬라이더 범위에 따라 조절)
+        // 최대 오차 범위를 설정합니다. (슬라이더 범위에 따라 조절)
         // 슬라이더가 0~3 범위라면, 최대 오차는 약 6(3+3) 정도가 됩니다.
         float maxDiff = 4.0f; 
 
-        // 4. 정답과의 거리를 비율(0~1)로 변환합니다.
-        // 가득 차면 1, 정답이면 0이 되는 값입니다.
+        // 정답과의 거리를 비율(0~1)로 변환
         float ratio = Mathf.Clamp01(totalDiff / maxDiff);
 
+        // 볼륨 지정
+        float noiseVolume = ratio;
+        float morseVolume = Mathf.Pow(1.0f - ratio, 10f); // 3은 곡선의 강도
+
         if (audio == audioSource) // Noise 소리 (멀어질수록 커짐)
-        {
-            audio.volume = ratio; 
-        }
+            audio.volume = noiseVolume;
         else if (audio == audioSource2) // Morse 소리 (가까워질수록 커짐)
-        {
-            audio.volume = 1.0f - ratio; 
-        }
+            audio.volume = morseVolume;
     }
 }
