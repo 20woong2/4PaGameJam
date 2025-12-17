@@ -684,6 +684,12 @@ MonoBehaviour:
   correctFR: 0
   textAM: {fileID: 150497520}
   textFR: {fileID: 1626379407}
+  result:
+  - 0
+  - 0
+  - 0
+  - 0
+  level: 1
 --- !u!4 &546561648
 Transform:
   m_ObjectHideFlags: 0

@@ -32,7 +32,7 @@ public class FrequencyPuzzle : MonoBehaviour
     private float hertzAM;
     private float hertzFR;
 
-    public float result;
+    public static int[] HertzResult = new int[4];
     public int level = 1;
 
 
@@ -102,9 +102,8 @@ public class FrequencyPuzzle : MonoBehaviour
             // 2.5초 뒤 클리어
             if (timer >= 2.5f && !isClear)
             {
-                result = hertzAM - hertzFR;
-                Debug.Log("Clear! : " + result);
-
+                HertzResult[level-1] = (int)Mathf.Floor(hertzAM - hertzFR);
+                Debug.Log("Clear! : " + HertzResult[level-1]);
 
                 isClear = true;
                 timer = 0f;
