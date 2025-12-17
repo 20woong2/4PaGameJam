@@ -1315,6 +1315,7 @@ GameObject:
   - component: {fileID: 1034964628}
   - component: {fileID: 1034964627}
   - component: {fileID: 1034964629}
+  - component: {fileID: 1034964630}
   m_Layer: 0
   m_Name: num3
   m_TagString: Untagged
@@ -1416,6 +1417,20 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 0.2}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1034964630
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1034964626}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 376cf959c1b32c24c8416897f2b41af7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BoxReaction
+  languageQuestion: {fileID: 1586217998}
+  thisNum: 0
 --- !u!1 &1084689423
 GameObject:
   m_ObjectHideFlags: 0
@@ -1705,6 +1720,7 @@ GameObject:
   - component: {fileID: 1428221674}
   - component: {fileID: 1428221673}
   - component: {fileID: 1428221675}
+  - component: {fileID: 1428221676}
   m_Layer: 0
   m_Name: num2
   m_TagString: Untagged
@@ -1806,6 +1822,20 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 0.2}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1428221676
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1428221672}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 376cf959c1b32c24c8416897f2b41af7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BoxReaction
+  languageQuestion: {fileID: 1586217998}
+  thisNum: 0
 --- !u!1 &1489025245
 GameObject:
   m_ObjectHideFlags: 0
@@ -1817,6 +1847,7 @@ GameObject:
   - component: {fileID: 1489025247}
   - component: {fileID: 1489025246}
   - component: {fileID: 1489025248}
+  - component: {fileID: 1489025249}
   m_Layer: 0
   m_Name: num1
   m_TagString: Untagged
@@ -1918,6 +1949,20 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 0.2}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1489025249
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1489025245}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 376cf959c1b32c24c8416897f2b41af7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BoxReaction
+  languageQuestion: {fileID: 1586217998}
+  thisNum: 0
 --- !u!1 &1553625883
 GameObject:
   m_ObjectHideFlags: 0
@@ -2735,6 +2780,7 @@ GameObject:
   - component: {fileID: 1956747984}
   - component: {fileID: 1956747983}
   - component: {fileID: 1956747985}
+  - component: {fileID: 1956747986}
   m_Layer: 0
   m_Name: num4
   m_TagString: Untagged
@@ -2836,6 +2882,20 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 0.2}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1956747986
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1956747982}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 376cf959c1b32c24c8416897f2b41af7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BoxReaction
+  languageQuestion: {fileID: 1586217998}
+  thisNum: 0
 --- !u!1 &2112626189
 GameObject:
   m_ObjectHideFlags: 0
