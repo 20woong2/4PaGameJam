@@ -5337,6 +5337,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Back Button
       objectReference: {fileID: 0}
+    - target: {fileID: 5179298816458091169, guid: 3bf0b86031de9a84189a2c802f1d819c, type: 3}
+      propertyPath: m_Color.b
+      value: 0.86666673
+      objectReference: {fileID: 0}
+    - target: {fileID: 5179298816458091169, guid: 3bf0b86031de9a84189a2c802f1d819c, type: 3}
+      propertyPath: m_Color.g
+      value: 0.83921576
+      objectReference: {fileID: 0}
+    - target: {fileID: 5179298816458091169, guid: 3bf0b86031de9a84189a2c802f1d819c, type: 3}
+      propertyPath: m_Color.r
+      value: 0.3529412
+      objectReference: {fileID: 0}
     - target: {fileID: 6947805863596789180, guid: 3bf0b86031de9a84189a2c802f1d819c, type: 3}
       propertyPath: m_Pivot.x
       value: 1
