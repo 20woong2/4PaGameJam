@@ -1,8 +1,8 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 using UnityEngine.InputSystem;
 public class ObjectHover : MonoBehaviour
 {
-    [SerializeField] private float hoverScale = 1.2f;
+    [SerializeField] private float hoverScale = 1.05f;
     [SerializeField] private float smoothSpeed = 10;
     
     private Vector3 originalScale;
@@ -16,15 +16,15 @@ public class ObjectHover : MonoBehaviour
     
     void Update()
     {
-        // Input SystemÀ¸·Î ¸¶¿ì½º À§Ä¡ °¡Á®¿À±â
+        // Input Systemìœ¼ë¡œ ë§ˆìš°ìŠ¤ ìœ„ì¹˜ ê°€ì ¸ì˜¤ê¸°
         Vector2 mousePos = Mouse.current.position.ReadValue();
         Vector2 worldPos = cam.ScreenToWorldPoint(mousePos);
         
-        // 2D Raycast·Î È£¹ö °¨Áö
+        // 2D Raycastë¡œ í˜¸ë²„ ê°ì§€
         RaycastHit2D hit = Physics2D.Raycast(worldPos, Vector2.zero);
         bool isHover = hit.collider != null && hit.collider.gameObject == gameObject;
         
-        // È£¹ö ¾Ö´Ï¸ŞÀÌ¼Ç
+        // í˜¸ë²„ ì• ë‹ˆë©”ì´ì…˜
         Vector3 targetScale = isHover ? originalScale * hoverScale : originalScale;
         
         transform.localScale = Vector3.Lerp(transform.localScale, targetScale, smoothSpeed * Time.deltaTime);
