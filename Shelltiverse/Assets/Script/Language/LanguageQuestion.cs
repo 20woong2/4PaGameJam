@@ -9,6 +9,7 @@ public class LanguageQuestion : MonoBehaviour
     public static LanguageQuestion instance;
     public static string[] questions = new string[4];
     public static int[] changeNums = new int[4];
+    public static bool[] questActive = new bool[4];
     public Canvas myCanvas;
     public static List<string> questionLineUp = new List<string>();
     [SerializeField] private TextMeshProUGUI myText;
@@ -34,38 +35,32 @@ public class LanguageQuestion : MonoBehaviour
             questions[i] = ShiftASCII(questions[i], changeNums[i]);
         }
         myText.text = "NULL";
-        if(waitCount != 0)
+        for (int i = 0; i < 4; i++) 
         {
-            Debug.Log("?? ? ?? ?? ?? ???");
-            for (int i = waitCount; i > 0; i--)
+            if (questActive[i])
             {
-                Debug.Log("??");
-                SetQuestion(waitCount - i);
+                ActivateNextUI(i);
             }
         }
     }
     public static void SetQuestion(int num)
     {
-        Debug.Log("SetQuestion ???");
+
+        Debug.Log("SetQuestion 호출됨");
+        questActive[num] = true;
         questionLineUp.Add(questions[num]);
         if (instance != null)
         {
-            Debug.Log("ActivateNextUI ??");
+            Debug.Log("ActivateNextUI 실행");
             instance.ActivateNextUI(num);
-        }
-        else
-        {
-            Debug.Log("waitCount + 1");
-            waitCount++;
         }
     }
     private void ActivateNextUI(int num)
     {
-        Debug.Log("ActivateNextUI ??");
-        activeCount++;
-        string targetName = "Quest" + activeCount;
+        Debug.Log("ActivateNextUI 호출");
+        string targetName = "Quest" + (num+1);
         Transform target = myCanvas.transform.Find(targetName);
-        string boxName = "num" + activeCount;
+        string boxName = "num" + (num + 1);
         Transform numTransform = target.transform.Find(boxName);
         if (numTransform != null)
         {
@@ -79,12 +74,12 @@ public class LanguageQuestion : MonoBehaviour
         }
         if (target != null)
         {
-            Debug.Log("???? ???");
+            Debug.Log("오브젝트 활성화");
             target.gameObject.SetActive(true);
             TextMeshProUGUI qText = target.GetComponentInChildren<TextMeshProUGUI>();
             if (qText != null)
             {
-                qText.text = questionLineUp[questionLineUp.Count - 1];
+                qText.text = questionLineUp[num];
             }
         }
     }
@@ -105,8 +100,10 @@ public class LanguageQuestion : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        /*if (Input.GetKeyDown(KeyCode.A)) {
+         if(Input.GetKeyDown(KeyCode.A))  
+            {
             SetQuestion(activeCount);
-        }*/
+            activeCount++;
+        }
     }
 }
