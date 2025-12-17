@@ -18,7 +18,7 @@ public class LanguageTextBox : MonoBehaviour
             if (int.TryParse(input, out playerAnswer))
             {
                 FindXYZ.Z = playerAnswer;
-                if (playerAnswer == LanguageQuestion.changeNum)
+                if (playerAnswer == LanguageQuestion.changeNums[0])
                 {
                     Debug.Log("Á¤´ä");
                 }

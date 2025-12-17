@@ -1,19 +1,33 @@
 using TMPro;
 using UnityEngine;
+using System.Collections.Generic;
 using static UnityEngine.UI.Image;
 
 public class LanguageQuestion : MonoBehaviour
 {
-    public static string question;
-    public static int changeNum;
-    public string questionResult;
+    public static string[] questions = new string[4];
+    public static int[] changeNums = new int[4];
+    public static List<string> questionLineUp = new List<string>();
     [SerializeField] private TextMeshProUGUI myText;
     void Start()
     {
-        question = "APPLE";
-        changeNum = Random.Range(1, 27);
-        questionResult = ShiftASCII(question, changeNum);
-        myText.text = questionResult;
+        questions[0] = "AIR"; 
+        questions[1] = "PARALLEL";
+        questions[2] = "SHELL";
+        questions[3] = "WORLD";
+        changeNums[0] = -20;
+        changeNums[1] = 14;
+        changeNums[2] = -32;
+        changeNums[3] = 30;
+        for(int i = 0; i < 4; i++)
+        {
+            questions[i] = ShiftASCII(questions[i], changeNums[i]);
+        }
+        myText.text = "NULL";
+    }
+    public static void SetQuestion(int num)
+    {
+        questionLineUp.Add(questions[num]);
     }
     public string ShiftASCII(string text, int n)
     {
@@ -21,18 +35,11 @@ public class LanguageQuestion : MonoBehaviour
 
         for (int i = 0; i < charArray.Length; i++)
         {
-            if(charArray[i] + n > 90) 
-            { 
-                charArray[i] = (char)(charArray[i] + n + 6); 
-            } else 
-            { 
-                charArray[i] = (char)(charArray[i] + n); 
-            }
-                
+            charArray[i] = (char)(charArray[i] + n); 
         }
-
-        return new string(charArray);
+        return new string(@charArray);
     }
+
     // Update is called once per frame
     void Update()
     {
