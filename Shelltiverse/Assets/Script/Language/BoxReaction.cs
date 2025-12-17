@@ -12,6 +12,7 @@ public class BoxReaction : MonoBehaviour
 
     void OnMouseDown()
     {
+        Debug.Log("문자열 셋팅" + thisNum);
         languageQuestion.SetText(thisNum);
         LanguageTextBox.thisQuest = thisNum;
     }

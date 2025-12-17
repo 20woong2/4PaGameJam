@@ -38,7 +38,7 @@ public class FrequencyPuzzle : MonoBehaviour
     private float hertzFR;
 
     public static int[] HertzResult = new int[4];
-    public int level = 1;
+    public static int level = 1;
 
 
 
@@ -56,6 +56,18 @@ public class FrequencyPuzzle : MonoBehaviour
         PlaySound("morse");
 
         logText.text = "...";
+        LanguageQuestion.questions[0] = "AIR";
+        LanguageQuestion.questions[1] = "PARALLEL";
+        LanguageQuestion.questions[2] = "SHELL";
+        LanguageQuestion.questions[3] = "WORLD";
+        LanguageQuestion.changeNums[0] = -20;
+        LanguageQuestion.changeNums[1] = 14;
+        LanguageQuestion.changeNums[2] = -32;
+        LanguageQuestion.changeNums[3] = 30;
+        for (int i = 0; i < 4; i++)
+        {
+            LanguageQuestion.questions[i] = LanguageQuestion.ShiftASCII(LanguageQuestion.questions[i], LanguageQuestion.changeNums[i]);
+        }
     }
 
 
@@ -116,6 +128,7 @@ public class FrequencyPuzzle : MonoBehaviour
                 HertzResult[level-1] = (int)Mathf.Floor(hertzAM - hertzFR);
                 Debug.Log("Clear! : " + HertzResult[level-1]);
                 logText.text = "Clear! : " + HertzResult[level - 1];
+                Debug.Log("언어 문제 호출" + (level - 1));
                 LanguageQuestion.SetQuestion(level - 1);
 
                 isClear = true;

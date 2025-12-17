@@ -22,24 +22,13 @@ public class LanguageQuestion : MonoBehaviour
     }
     void Start()
     {
-        questions[0] = "AIR"; 
-        questions[1] = "PARALLEL";
-        questions[2] = "SHELL";
-        questions[3] = "WORLD";
-        changeNums[0] = -20;
-        changeNums[1] = 14;
-        changeNums[2] = -32;
-        changeNums[3] = 30;
-        for(int i = 0; i < 4; i++)
-        {
-            questions[i] = ShiftASCII(questions[i], changeNums[i]);
-        }
         myText.text = "NULL";
+        questionLineUp.Clear();
         for (int i = 0; i < 4; i++) 
         {
             if (questActive[i])
             {
-                ActivateNextUI(i);
+                SetQuestion(i);
             }
         }
     }
@@ -48,6 +37,7 @@ public class LanguageQuestion : MonoBehaviour
 
         Debug.Log("SetQuestion 호출됨");
         questActive[num] = true;
+        Debug.Log("문제 리스트에 추가" + questions[num]);
         questionLineUp.Add(questions[num]);
         if (instance != null)
         {
@@ -82,11 +72,12 @@ public class LanguageQuestion : MonoBehaviour
             TextMeshProUGUI qText = target.GetComponentInChildren<TextMeshProUGUI>();
             if (qText != null)
             {
+                Debug.Log("문제칸에 텍스트 입력" + questionLineUp[num]);
                 qText.text = questionLineUp[num];
             }
         }
     }
-    public string ShiftASCII(string text, int n)
+    public static string ShiftASCII(string text, int n)
     {
         char[] charArray = text.ToCharArray();
 
@@ -98,6 +89,7 @@ public class LanguageQuestion : MonoBehaviour
     }
     public void SetText(int num)
     {
+        Debug.Log("문자열 삽입" + questionLineUp[num]);
         myText.text = questionLineUp[num];
     }
     // Update is called once per frame
