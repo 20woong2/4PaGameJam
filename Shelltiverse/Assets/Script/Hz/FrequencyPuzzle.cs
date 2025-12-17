@@ -11,6 +11,7 @@ public class FrequencyPuzzle : MonoBehaviour
     [Header("UI Sliders")]
     public Slider ampSlider;
     public Slider freqSlider;
+    public TextMeshProUGUI logText;
 
     [Header("Settings")]
     public float threshold = 0.1f; // 얼마나 정확해야 정답으로 인정할지
@@ -49,6 +50,8 @@ public class FrequencyPuzzle : MonoBehaviour
         // 시작하자마자 소리 재생
         PlaySound("noise");
         PlaySound("morse");
+
+        logText.text = "...";
     }
 
 
@@ -104,6 +107,7 @@ public class FrequencyPuzzle : MonoBehaviour
             {
                 HertzResult[level-1] = (int)Mathf.Floor(hertzAM - hertzFR);
                 Debug.Log("Clear! : " + HertzResult[level-1]);
+                logText.text = "Clear! : " + HertzResult[level - 1];
                 LanguageQuestion.SetQuestion(level - 1);
 
                 isClear = true;
@@ -112,6 +116,7 @@ public class FrequencyPuzzle : MonoBehaviour
                 else  
                 {
                     Debug.Log("문제 모두 해결");
+                    logText.text = "ALL CLEAR";
                     audioSource.Stop();
                     audioSource2.Stop();
                 }
