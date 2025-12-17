@@ -137,7 +137,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &3009630
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -813,7 +813,6 @@ GameObject:
   - component: {fileID: 452163329}
   - component: {fileID: 452163331}
   - component: {fileID: 452163332}
-  - component: {fileID: 452163333}
   m_Layer: 0
   m_Name: Aair
   m_TagString: Untagged
@@ -953,19 +952,6 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &452163333
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 452163328}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f8084cfdd138b1845b77c759d3617f3e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::test
-  myIndex: 0
 --- !u!1 &490684226
 GameObject:
   m_ObjectHideFlags: 0
@@ -2511,7 +2497,6 @@ MonoBehaviour:
   displayTextC: {fileID: 2131370156}
   displayTextD: {fileID: 494576656}
   submitButton: {fileID: 1598511435}
-  airIndex: 0
 --- !u!4 &1627040239
 Transform:
   m_ObjectHideFlags: 0
