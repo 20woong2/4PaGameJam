@@ -1536,8 +1536,6 @@ MonoBehaviour:
   audioSource2: {fileID: 546561649}
   noise: {fileID: 8300000, guid: 5ed0d604ccd4040809e9130d7d7d2cfa, type: 3}
   morse: {fileID: 8300000, guid: c8e3f7b26009a4634af2aaf3482cd1b7, type: 3}
-  correctAM: 0
-  correctFR: 0
   textAM: {fileID: 150497520}
   textFR: {fileID: 1626379407}
 --- !u!4 &546561648

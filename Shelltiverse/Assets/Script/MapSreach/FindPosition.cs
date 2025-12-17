@@ -1,115 +1,157 @@
 using UnityEngine;
-using UnityEngine.UI;  // ← 이 줄 추가!
-using TMPro;           // 이미 있으면 OK
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using UnityEngine.EventSystems;
+
 public class FindPosition : MonoBehaviour, IPointerDownHandler
 {
-    private int Count=0;
-    private bool greenB = false;
-    private bool orangeB = false;
-    private bool yellowB = false;
-    private bool redB = false;
+    [Header("UI")]
     [SerializeField] private Image targetImage;
-    [SerializeField] private GameObject AWorld;
-    [SerializeField] private GameObject AWorld1;
-    [SerializeField] private GameObject BWorld;
-    [SerializeField] private GameObject BWorld1;
-    [SerializeField] private GameObject CWorld;
-    [SerializeField] private GameObject CWorld1;
-    [SerializeField] private GameObject DWorld;
-    [SerializeField] private GameObject DWorld1;
-    public static bool firstturn = true;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    
+    [Header("World Objects")]
+    [SerializeField] private GameObject[] worlds = new GameObject[4];
+    [SerializeField] private GameObject[] worlds1 = new GameObject[4];
+
+    private bool isInitialized = false;  // 초기화 플래그
+
+    private void Awake()
+{
+    // 1순위: 강제 모든 월드 비활성화 (Inspector 상태 무시)
+    ForceDeactivateAllWorlds();
+    
+    // 2순위: 정상 초기화
+    if (!isInitialized)
     {
-        if(firstturn == true)
+        InitializeOnFirstRun();
+        isInitialized = true;
+    }
+}
+
+// 새로 추가: Inspector 상태 무시하고 강제 비활성화
+private void ForceDeactivateAllWorlds()
+{
+    for (int i = 0; i < 4; i++)
+    {
+        if (worlds[i] != null) worlds[i].SetActive(false);
+        if (worlds1[i] != null) worlds1[i].SetActive(false);
+    }
+    Debug.Log("강제 초기화: 모든 월드 비활성화");
+}
+
+    private void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    private void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    // 최초 실행 시 모든 월드 비활성화
+    private void InitializeOnFirstRun()
+    {
+        if (DataManager.IsFirstRun)
         {
-            AWorld.SetActive(false);
-            AWorld1.SetActive(false);
-            BWorld.SetActive(false);
-            BWorld1.SetActive(false);
-            CWorld.SetActive(false);
-            CWorld1.SetActive(false);
-            DWorld.SetActive(false);
-            DWorld1.SetActive(false);
+            InitializeAllWorlds(false);
+            DataManager.IsFirstRun = false;
+            Debug.Log("최초 실행: 모든 월드 비활성화 완료");
         }
-        firstturn = false;
+        else
+        {
+            RestoreWorldStates();
+            Debug.Log("저장된 상태 복원 완료");
+        }
+    }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        // 씬 전환 후 상태 복원 (최초 실행 제외)
+        if (!DataManager.IsFirstRun)
+        {
+            RestoreWorldStates();
+        }
+    }
+
+    private void RestoreWorldStates()
+    {
+        for (int i = 0; i < 4; i++)
+        {
+            bool shouldBeActive = DataManager.activatedWorlds[i] == 1;
+            if (worlds[i] != null) worlds[i].SetActive(shouldBeActive);
+            if (worlds1[i] != null) worlds1[i].SetActive(shouldBeActive);
+        }
     }
 
     public void OnPointerDown(PointerEventData eventData)
+{
+    Debug.Log("클릭 감지");
+    
+    int matchCount = 0;
+    int perfectMatchIndex = -1;
+    
+    for (int i = 0; i < 4; i++)
     {
-        Debug.Log("zmf");
-        for(int i = 0;i<4;i++)
+        int rowMatch = 0;
+        for (int j = 0; j < 3; j++)
         {
-            for(int j = 0; j<3;j++)
-            {
-                if(ResultManager.resultXYZ[j] == DataManager.Multiverse[i,j])
-                {
-                    Count++;
-                }
-            }
-            if(Count == 3)
-            {
-                greenB = true;
-                if(i==0)
-                {
-                    AWorld.SetActive(true);
-                    AWorld1.SetActive(true);
-                }
-                else if(i==1)
-                {
-                    BWorld.SetActive(false);
-                    BWorld1.SetActive(false);
-                }
-                else if(i==2)
-                {
-                    CWorld.SetActive(false);
-                    CWorld1.SetActive(false);
-                }
-                else if(i==3)
-                {
-                    DWorld.SetActive(false);
-                    DWorld1.SetActive(false);
-                }
-                Count = 0;
-                break;
-            }
-            else if(Count == 2)
-            {
-                yellowB = true;
-                Count = 0;
-            }
-            else if(Count == 1)
-            {
-                orangeB = true;
-                Count = 0;
-            }
-            else if(Count == 0)
-            {
-                redB = true;
-                Count = 0;
-            }
+            if (ResultManager.resultXYZ[j] == DataManager.Multiverse[i, j])
+                rowMatch++;
         }
-        if(greenB == true)
-        {
-            targetImage.color = new Color(55, 255, 0, 0.2f);
-        }
-        else if (yellowB == true)
-        {
-            targetImage.color = new Color(255, 238, 0, 0.2f);
-        }
-        else if(orangeB == true)
-        {
-            targetImage.color = new Color(255, 199, 0, 0.2f);
-        }
-        else if(redB == true)
-        {
-            targetImage.color = new Color(255, 0, 0, 0.2f);
-        }
-    }
-    // Update is called once per frame
-    void Update()
-    {
         
+        Debug.Log($"World {i}: {rowMatch}/3 일치");  // 디버그 추가
+        
+        if (rowMatch == 3)
+        {
+            perfectMatchIndex = i;
+            matchCount = 3;  // ? 완전일치 시 matchCount 강제 3
+            break;
+        }
+        matchCount = Mathf.Max(matchCount, rowMatch);
     }
+    
+    Debug.Log($"최종: matchCount={matchCount}, perfect={perfectMatchIndex}");  // 디버그
+    
+    // 색상 적용 (완전일치 우선)
+    targetImage.color = perfectMatchIndex >= 0 ? 
+        new Color(55f / 255f, 1f, 0f, 0.2f) :  // Green 우선
+        matchCount switch
+        {
+            2 => new Color(1f, 238f / 255f, 0f, 0.2f),
+            1 => new Color(1f, 199f / 255f, 0f, 0.2f),
+            0 => new Color(1f, 0f, 0f, 0.2f),
+            _ => Color.white
+        };
+    
+    if (perfectMatchIndex >= 0)
+    {
+        ActivateWorld(perfectMatchIndex);
+    }
+}
+
+    private void ActivateWorld(int index)
+    {
+        if (worlds[index] != null)
+        {
+            worlds[index].SetActive(true);
+            DataManager.activatedWorlds[index] = 1;
+        }
+        if (worlds1[index] != null)
+        {
+            worlds1[index].SetActive(true);
+            DataManager.activatedWorlds[index] = 1;
+        }
+        Debug.Log($"World {index} 활성화됨");
+    }
+
+    private void InitializeAllWorlds(bool active)
+    {
+        for (int i = 0; i < 4; i++)
+        {
+            if (worlds[i] != null) worlds[i].SetActive(active);
+            if (worlds1[i] != null) worlds1[i].SetActive(active);
+            DataManager.activatedWorlds[i] = active ? 1 : 0;
+        }
+    }
+    
 }
