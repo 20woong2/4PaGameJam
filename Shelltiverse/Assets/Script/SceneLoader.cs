@@ -10,7 +10,7 @@ public class SceneLoader : MonoBehaviour
     public Image fadeImage;
 
     [Tooltip("페이드 효과가 지속될 시간 (초 단위)")]
-    public float fadeDuration = 1.0f;
+    public float fadeDuration = 0.5f;
 
     void Start()
     {
