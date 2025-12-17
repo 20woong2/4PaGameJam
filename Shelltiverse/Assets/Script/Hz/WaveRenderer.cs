@@ -4,7 +4,7 @@ using UnityEngine;
 public class WaveRenderer : MonoBehaviour
 {
     public LineRenderer lineRenderer;
-    public int points = 50; // 선을 구성할 점의 개수
+    public int points = 100; // 선을 구성할 점의 개수
     public float width = 10.0f; // 파형의 전체 가로 길이
 
     // 그래프 위치 조절은 이걸로 하면됨^^
@@ -28,7 +28,7 @@ public class WaveRenderer : MonoBehaviour
             float progress = (float)i / (points - 1);
             float x = progress * width + posX;
             // 사인파 공식: y = A * sin(f * x)
-            float y = amplitude * Mathf.Sin(x * frequency) * 0.5f + posY;
+            float y = amplitude * Mathf.Sin(x * frequency) * 0.4f + posY;
             lineRenderer.SetPosition(i, new Vector3(x, y, 0));
         }
     }

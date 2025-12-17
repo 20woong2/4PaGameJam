@@ -39,6 +39,7 @@ public class FrequencyPuzzle : MonoBehaviour
 
     public static int[] HertzResult = new int[4];
     public static int level = 1;
+    private int randNum;
 
 
 
@@ -46,8 +47,10 @@ public class FrequencyPuzzle : MonoBehaviour
     void Start()
     {
         // 정답 파형을 랜덤하게 설정 (예시)
-        correctAM = Random.Range(0.1f, 2.9f);
-        correctFR = Random.Range(0.1f, 2.9f);
+        // correctAM = Random.Range(0.1f, 2.9f);
+        // correctFR = Random.Range(0.1f, 2.9f);
+        correctAM = 2.6f;
+        correctFR = 0.5f;
         targetWave.amplitude = correctAM;
         targetWave.frequency = correctFR;
 
@@ -98,8 +101,19 @@ public class FrequencyPuzzle : MonoBehaviour
         // 레밸 변경 검사
         if(oldLv != level) 
         {
-            correctAM = Random.Range(0.1f, 2.9f);
-            correctFR = Random.Range(0.1f, 2.9f);
+            // correctAM = Random.Range(0.1f, 2.9f);
+            // correctFR = Random.Range(0.1f, 2.9f);
+            if (level == 2) {
+                correctAM = 0.3f;
+                correctFR = 1.7f;
+            } else if (level == 3) {
+                correctAM = 2.3f;
+                correctFR = 2.8f;
+            } else if (level == 4) {
+                correctAM = 1.5f;
+                correctFR = 0.4f;
+            }
+            
             targetWave.amplitude = correctAM;
             targetWave.frequency = correctFR;
         }
@@ -120,13 +134,16 @@ public class FrequencyPuzzle : MonoBehaviour
         {
             // 정답일 때 실행할 로직 
             timer += Time.deltaTime;
-            // playerWave.lineRenderer.startColor = Color.green;
-            // playerWave.lineRenderer.endColor = Color.green;
+            if (level<4) logText.text = "Progress : " + (int)((timer/2.5)*100) + "%";
+
             // 2.5초 뒤 클리어
             if (timer >= 2.5f && !isClear)
             {
-                HertzResult[level-1] = (int)Mathf.Floor(hertzAM - hertzFR);
-                Debug.Log("Clear! : " + HertzResult[level-1]);
+                //HertzResult[level-1] = (int)Mathf.Floor(hertzAM - hertzFR);
+                if (level == 1) HertzResult[level-1] = 57;
+                if (level == 2) HertzResult[level-1] = -36;
+                if (level == 3) HertzResult[level-1] = -16;
+                if (level == 4) HertzResult[level-1] = 32;
                 logText.text = "Clear! : " + HertzResult[level - 1];
                 Debug.Log("언어 문제 호출" + (level - 1));
                 LanguageQuestion.SetQuestion(level - 1);
@@ -147,6 +164,7 @@ public class FrequencyPuzzle : MonoBehaviour
         {
             timer = 0f;
             isClear = false;
+            logText.text = "...";
         }
     }
 
