@@ -6,6 +6,7 @@ public class InputResult : MonoBehaviour
     [SerializeField] private TMP_InputField inputField;
     
     [SerializeField] private TextMeshProUGUI displayText;
+    [SerializeField] private TextMeshProUGUI displayQ;
     [SerializeField] private TextMeshProUGUI displayTextA;
     [SerializeField] private TextMeshProUGUI displayTextB;
     [SerializeField] private TextMeshProUGUI displayTextC;
@@ -31,6 +32,8 @@ public class InputResult : MonoBehaviour
         airIndex = MonitorClick.selectedIndex;
         
         // 결과 표시
+        if(MonitorClick.selectedIndex >= 0)displayQ.text = AirSetting.AirQuestion[MonitorClick.selectedIndex];
+        
         displayTextA.text = "" + AirSetting.AirResult[0];
         displayTextB.text = "" + AirSetting.AirResult[1];
         displayTextC.text = "" + AirSetting.AirResult[2];
