@@ -54,6 +54,9 @@ public class LanguageQuestion : MonoBehaviour
             Debug.Log("ActivateNextUI ½ÇÇà");
             instance.ActivateNextUI(num);
         }
+        else
+        {
+        }
     }
     private void ActivateNextUI(int num)
     {
