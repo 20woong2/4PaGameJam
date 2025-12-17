@@ -1,13 +1,13 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 
 public class DataManager : MonoBehaviour
 {
     public static int[,] Multiverse = new int[4, 3]
     {
-        {339, 20, 30 },    // 0Çà
-        {-98, 50, 60 },    // 1Çà
-        {124, 80, 90 },    // 2Çà
-        {-92,110,120 }     // 3Çà
+        {339, 20, 30 },    // 0í–‰
+        {-98, 50, 60 },    // 1í–‰
+        {124, 80, 90 },    // 2í–‰
+        {-92,110,120 }     // 3í–‰
     };
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()

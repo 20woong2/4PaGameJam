@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 7c4a8b8d1de9b23418881391cc1ad268
+guid: 5302c9c8e3b033e458929e25041390d7
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8805619346452711009
-    second: "Gemini_Generated_Image_cafipocafipocafi - \uBCF5\uC0AC\uBCF8-export_0"
+      213: 2496174294783171234
+    second: "Gemini_Generated_Image_cafipocafipocafi - \uBCF5\uC0AC\uBCF8 (2)-export_0"
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,7 +46,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 3
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -75,7 +75,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 2
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: "Gemini_Generated_Image_cafipocafipocafi - \uBCF5\uC0AC\uBCF8-export_0"
+      name: "Gemini_Generated_Image_cafipocafipocafi - \uBCF5\uC0AC\uBCF8 (2)-export_0"
       rect:
         serializedVersion: 2
-        x: 379
+        x: 0
         y: 0
-        width: 2082
-        height: 410
+        width: 2840
+        height: 1500
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 1660f943428d33a70800000000000000
-      internalID: 8805619346452711009
+      spriteID: 2aa130abb4134a220800000000000000
+      internalID: 2496174294783171234
       vertices: []
       indices: 
       edges: []
@@ -125,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      "Gemini_Generated_Image_cafipocafipocafi - \uBCF5\uC0AC\uBCF8-export_0": 8805619346452711009
+      "Gemini_Generated_Image_cafipocafipocafi - \uBCF5\uC0AC\uBCF8 (2)-export_0": 2496174294783171234
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
