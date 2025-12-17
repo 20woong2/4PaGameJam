@@ -8,6 +8,15 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Main.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
+  - enabled: 1
+    path: Assets/Scenes/AirStage.unity
+    guid: 9740c4f42ec095745abdc2686a62391c
+  - enabled: 1
+    path: Assets/Scenes/HzScene.unity
+    guid: 0416a88fedeb646f6b26175f940d7a89
+  - enabled: 1
+    path: Assets/Scenes/Language.unity
+    guid: 1fd283bc49cd6bb4699139ebe2e19347
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
