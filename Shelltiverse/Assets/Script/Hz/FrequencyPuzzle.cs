@@ -4,6 +4,10 @@ using TMPro;
 
 public class FrequencyPuzzle : MonoBehaviour
 {
+    [SerializeField] private TextMeshProUGUI displayTextA;
+    [SerializeField] private TextMeshProUGUI displayTextB;
+    [SerializeField] private TextMeshProUGUI displayTextC;
+    [SerializeField] private TextMeshProUGUI displayTextD;
     [Header("Wave Renderers")]
     public WaveRenderer targetWave; // 정답 파형 
     public WaveRenderer playerWave; // 플레이어가 조절하는 파형
@@ -14,7 +18,7 @@ public class FrequencyPuzzle : MonoBehaviour
     public TextMeshProUGUI logText;
 
     [Header("Settings")]
-    public float threshold = 0.1f; // 얼마나 정확해야 정답으로 인정할지
+    public float threshold = 0.3f; // 얼마나 정확해야 정답으로 인정할지
 
     [Header("Audio Settings")]
     public AudioSource audioSource;
@@ -87,6 +91,10 @@ public class FrequencyPuzzle : MonoBehaviour
             targetWave.amplitude = correctAM;
             targetWave.frequency = correctFR;
         }
+        displayTextA.text = HertzResult[0].ToString();
+        displayTextB.text = HertzResult[1].ToString();
+        displayTextC.text = HertzResult[2].ToString();
+        displayTextD.text = HertzResult[3].ToString();
     }
 
 

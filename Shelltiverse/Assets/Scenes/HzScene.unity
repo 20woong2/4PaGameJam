@@ -1318,6 +1318,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ef95d676c5f04f5cb68366981b14703, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FrequencyPuzzle
+  displayTextA: {fileID: 521843643}
+  displayTextB: {fileID: 1192067912}
+  displayTextC: {fileID: 1161593403}
+  displayTextD: {fileID: 1087694138}
   targetWave: {fileID: 1755037678}
   playerWave: {fileID: 272204382}
   ampSlider: {fileID: 922947098}
