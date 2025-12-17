@@ -1,14 +1,14 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 
 public class MonitorClick : MonoBehaviour
 {
-    // ÀÌ ¿ÀºêÁ§Æ®°¡ ¸î ¹ø ÀÎµ¦½ºÀÎÁö (0~3)
+    // ì´ ì˜¤ë¸Œì íŠ¸ê°€ ëª‡ ë²ˆ ì¸ë±ìŠ¤ì¸ì§€ (0~3)
     public int myIndex;
     public static int selectedIndex = -1;
 
-    void OnMouseDown()  // Á¤È®È÷ ÀÌ·¸°Ô
+    void OnMouseDown()  // ì •í™•íˆ ì´ë ‡ê²Œ
     {
         selectedIndex = myIndex;
-        Debug.Log("Square Å¬¸¯, index = " + selectedIndex);
+        Debug.Log("Square í´ë¦­, index = " + selectedIndex);
     }
 }

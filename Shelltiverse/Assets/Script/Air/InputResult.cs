@@ -1,6 +1,6 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 using TMPro;
-using UnityEngine.UI;  // ¹öÆ°¿ë
+using UnityEngine.UI;  // ë²„íŠ¼ìš©
 public class InputResult : MonoBehaviour
 {
     [SerializeField] private TMP_InputField inputField;
@@ -12,44 +12,44 @@ public class InputResult : MonoBehaviour
     [SerializeField] private TextMeshProUGUI displayTextD;
     [SerializeField] private Button submitButton;
 
-    // ¼±ÅÃµÈ ÀÎµ¦½º (0~3) - ¸Å ÇÁ·¹ÀÓ MonitorClick¿¡¼­ °¡Á®¿È
+    // ì„ íƒëœ ì¸ë±ìŠ¤ (0~3) - ë§¤ í”„ë ˆì„ MonitorClickì—ì„œ ê°€ì ¸ì˜´
     private int airIndex = -1;
     
     void Start()
     {
         inputField.contentType = TMP_InputField.ContentType.IntegerNumber;
         inputField.characterLimit = 3;
-        inputField.placeholder.GetComponent<TextMeshProUGUI>().text = "¼ıÀÚ ÀÔ·Â (0-999)";
+        inputField.placeholder.GetComponent<TextMeshProUGUI>().text = "ìˆ«ì ì…ë ¥ (0-999)";
         
-        // ¹öÆ°À» ´­·¶À» ¶§¸¸ Ã³¸®
+        // ë²„íŠ¼ì„ ëˆŒë €ì„ ë•Œë§Œ ì²˜ë¦¬
         submitButton.onClick.AddListener(SubmitNumber);
     }
     
     void Update()
     {
-        // ÇöÀç ¼±ÅÃµÈ ÀÎµ¦½º µ¿±âÈ­
+        // í˜„ì¬ ì„ íƒëœ ì¸ë±ìŠ¤ ë™ê¸°í™”
         airIndex = MonitorClick.selectedIndex;
         
-        // °á°ú Ç¥½Ã
-        displayTextA.text = "ÀÔ·ÂµÈ ¼ıÀÚ: " + AirSetting.AirResult[0];
-        displayTextB.text = "ÀÔ·ÂµÈ ¼ıÀÚ: " + AirSetting.AirResult[1];
-        displayTextC.text = "ÀÔ·ÂµÈ ¼ıÀÚ: " + AirSetting.AirResult[2];
-        displayTextD.text = "ÀÔ·ÂµÈ ¼ıÀÚ: " + AirSetting.AirResult[3];
+        // ê²°ê³¼ í‘œì‹œ
+        displayTextA.text = "" + AirSetting.AirResult[0];
+        displayTextB.text = "" + AirSetting.AirResult[1];
+        displayTextC.text = "" + AirSetting.AirResult[2];
+        displayTextD.text = "" + AirSetting.AirResult[3];
     }
 
-    // ¹öÆ° ´­·¶À» ¶§¸¸ È£Ãâ
+    // ë²„íŠ¼ ëˆŒë €ì„ ë•Œë§Œ í˜¸ì¶œ
     public void SubmitNumber()
     {
         OnNumberSubmitted(inputField.text);
-        // inputField.text = "";  // ÇÊ¿äÇÏ¸é ¿©±â¼­ Áö¿ì±â
+        // inputField.text = "";  // í•„ìš”í•˜ë©´ ì—¬ê¸°ì„œ ì§€ìš°ê¸°
     }
     
     void OnNumberSubmitted(string input)
     {
-        // ¾ÆÁ÷ ¾Æ¹« Ä­µµ ¼±ÅÃ ¾È ÇßÀ¸¸é ¹«½Ã
+        // ì•„ì§ ì•„ë¬´ ì¹¸ë„ ì„ íƒ ì•ˆ í–ˆìœ¼ë©´ ë¬´ì‹œ
         if (airIndex < 0)
         {
-            Debug.LogWarning("Ä­ÀÌ ¼±ÅÃµÇÁö ¾Ê¾Ò½À´Ï´Ù.");
+            Debug.LogWarning("ì¹¸ì´ ì„ íƒë˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤.");
             return;
         }
 
@@ -59,7 +59,7 @@ public class InputResult : MonoBehaviour
         }
         else
         {
-            Debug.LogWarning("Á¤¼ö°¡ ¾Æ´Õ´Ï´Ù.");
+            Debug.LogWarning("ì •ìˆ˜ê°€ ì•„ë‹™ë‹ˆë‹¤.");
         }
     }
     
@@ -72,10 +72,10 @@ public class InputResult : MonoBehaviour
         }
         else
         {
-            Debug.LogWarning("AirResult ÀÎµ¦½º ¹üÀ§ ¿À·ù ¶Ç´Â ¹è¿­ null");
+            Debug.LogWarning("AirResult ì¸ë±ìŠ¤ ë²”ìœ„ ì˜¤ë¥˜ ë˜ëŠ” ë°°ì—´ null");
         }
 
-        displayText.text = "ÀÔ·ÂµÈ ¼ıÀÚ: " + number;
-        Debug.Log($"¹ŞÀº ¼ıÀÚ: {number}, AirResult[{airIndex}]¿¡ ÀúÀåµÊ");
+        displayText.text = "ì…ë ¥ëœ ìˆ«ì: " + number;
+        Debug.Log($"ë°›ì€ ìˆ«ì: {number}, AirResult[{airIndex}]ì— ì €ì¥ë¨");
     }
 }
