@@ -4,16 +4,14 @@ using UnityEngine.UI;  // 버튼용
 public class ResultInputButton : MonoBehaviour
 {
     public int myIndex;
-    [SerializeField] private TextMeshProUGUI displayText;
     public void OnButtonClick()  // 정확히 이렇게
     {
-        Debug.Log("Square 클릭, index = ");
         if(myIndex <= 3)
-        displayText.text = AirSetting.AirResult[myIndex].ToString();
+        ResultManager.resultXYZ[0] = AirSetting.AirResult[myIndex];
         else if(myIndex>3 && myIndex<=7)
-        displayText.text = AirSetting.AirResult[myIndex-4].ToString();
+        ResultManager.resultXYZ[1] = FrequencyPuzzle.HertzResult[myIndex-4];
         else if(myIndex>7 && myIndex<=11)
-        displayText.text = AirSetting.AirResult[myIndex-8].ToString();
+        ResultManager.resultXYZ[2] = LanguageTextBox.answerList[myIndex-8];
         Debug.Log("Square 클릭, index = ");
     }
     // Start is called once before the first execution of Update after the MonoBehaviour is created

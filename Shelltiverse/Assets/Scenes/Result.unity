@@ -202,7 +202,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 31728395}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 31728397}
+        m_TargetAssemblyTypeName: ResultInputButton, Assembly-CSharp
+        m_MethodName: OnButtonClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &31728395
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -254,7 +266,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ResultInputButton
   myIndex: 6
-  displayText: {fileID: 207006637}
 --- !u!1 &107805296
 GameObject:
   m_ObjectHideFlags: 0
@@ -825,7 +836,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 503464485}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 503464487}
+        m_TargetAssemblyTypeName: ResultInputButton, Assembly-CSharp
+        m_MethodName: OnButtonClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &503464485
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -877,7 +900,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ResultInputButton
   myIndex: 1
-  displayText: {fileID: 1172072954}
 --- !u!1 &728363098
 GameObject:
   m_ObjectHideFlags: 0
@@ -961,7 +983,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 728363101}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 728363103}
+        m_TargetAssemblyTypeName: ResultInputButton, Assembly-CSharp
+        m_MethodName: OnButtonClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &728363101
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1013,7 +1047,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ResultInputButton
   myIndex: 11
-  displayText: {fileID: 989360652}
 --- !u!1 &758604502
 GameObject:
   m_ObjectHideFlags: 0
@@ -1233,7 +1266,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 759212835}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 759212837}
+        m_TargetAssemblyTypeName: ResultInputButton, Assembly-CSharp
+        m_MethodName: OnButtonClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &759212835
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1285,7 +1330,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ResultInputButton
   myIndex: 4
-  displayText: {fileID: 207006637}
 --- !u!1 &953990903
 GameObject:
   m_ObjectHideFlags: 0
@@ -1327,6 +1371,9 @@ MonoBehaviour:
   displayTextJ: {fileID: 1574721125}
   displayTextK: {fileID: 107805298}
   displayTextL: {fileID: 1157525416}
+  displayTextAA: {fileID: 1172072954}
+  displayTextBB: {fileID: 207006637}
+  displayTextCC: {fileID: 989360652}
 --- !u!4 &953990905
 Transform:
   m_ObjectHideFlags: 0
@@ -1425,7 +1472,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 970167973}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 970167975}
+        m_TargetAssemblyTypeName: ResultInputButton, Assembly-CSharp
+        m_MethodName: OnButtonClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &970167973
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1477,7 +1536,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ResultInputButton
   myIndex: 9
-  displayText: {fileID: 989360652}
 --- !u!1 &989360650
 GameObject:
   m_ObjectHideFlags: 0
@@ -1761,7 +1819,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ResultInputButton
   myIndex: 0
-  displayText: {fileID: 1172072954}
 --- !u!1 &1003834688
 GameObject:
   m_ObjectHideFlags: 0
@@ -1845,7 +1902,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1003834691}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1003834693}
+        m_TargetAssemblyTypeName: ResultInputButton, Assembly-CSharp
+        m_MethodName: OnButtonClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1003834691
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1897,7 +1966,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ResultInputButton
   myIndex: 5
-  displayText: {fileID: 207006637}
 --- !u!1 &1016694141
 GameObject:
   m_ObjectHideFlags: 0
@@ -1981,7 +2049,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1016694144}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1016694146}
+        m_TargetAssemblyTypeName: ResultInputButton, Assembly-CSharp
+        m_MethodName: OnButtonClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1016694144
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2033,7 +2113,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ResultInputButton
   myIndex: 3
-  displayText: {fileID: 1172072954}
 --- !u!1 &1157525414
 GameObject:
   m_ObjectHideFlags: 0
@@ -3205,7 +3284,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1785235418}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1785235420}
+        m_TargetAssemblyTypeName: ResultInputButton, Assembly-CSharp
+        m_MethodName: OnButtonClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1785235418
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3257,7 +3348,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ResultInputButton
   myIndex: 10
-  displayText: {fileID: 989360652}
 --- !u!1 &1827070088
 GameObject:
   m_ObjectHideFlags: 0
@@ -3341,7 +3431,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1827070091}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1827070093}
+        m_TargetAssemblyTypeName: ResultInputButton, Assembly-CSharp
+        m_MethodName: OnButtonClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1827070091
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3393,7 +3495,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ResultInputButton
   myIndex: 7
-  displayText: {fileID: 207006637}
 --- !u!1 &1858109674
 GameObject:
   m_ObjectHideFlags: 0
@@ -3821,7 +3922,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1987393150}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1987393152}
+        m_TargetAssemblyTypeName: ResultInputButton, Assembly-CSharp
+        m_MethodName: OnButtonClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1987393150
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3873,7 +3986,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ResultInputButton
   myIndex: 8
-  displayText: {fileID: 989360652}
 --- !u!1 &2013358173
 GameObject:
   m_ObjectHideFlags: 0
@@ -4093,7 +4205,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2029481203}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2029481205}
+        m_TargetAssemblyTypeName: ResultInputButton, Assembly-CSharp
+        m_MethodName: OnButtonClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2029481203
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4145,7 +4269,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ResultInputButton
   myIndex: 2
-  displayText: {fileID: 1172072954}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

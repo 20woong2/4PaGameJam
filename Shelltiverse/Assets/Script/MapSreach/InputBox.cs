@@ -15,6 +15,9 @@ public class InputBox : MonoBehaviour
     [SerializeField] private TextMeshProUGUI displayTextJ;
     [SerializeField] private TextMeshProUGUI displayTextK;
     [SerializeField] private TextMeshProUGUI displayTextL;
+    [SerializeField] private TextMeshProUGUI displayTextAA;
+    [SerializeField] private TextMeshProUGUI displayTextBB;
+    [SerializeField] private TextMeshProUGUI displayTextCC;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -29,13 +32,16 @@ public class InputBox : MonoBehaviour
         displayTextB.text = AirSetting.AirResult[1].ToString();
         displayTextC.text = AirSetting.AirResult[2].ToString();
         displayTextD.text = AirSetting.AirResult[3].ToString();
-        displayTextE.text = AirSetting.AirResult[0].ToString();
-        displayTextF.text = AirSetting.AirResult[1].ToString();
-        displayTextG.text = AirSetting.AirResult[2].ToString();
-        displayTextH.text = AirSetting.AirResult[3].ToString();
-        displayTextI.text = AirSetting.AirResult[0].ToString();
-        displayTextJ.text = AirSetting.AirResult[1].ToString();
-        displayTextK.text = AirSetting.AirResult[2].ToString();
-        displayTextL.text = AirSetting.AirResult[3].ToString();
+        displayTextE.text = FrequencyPuzzle.HertzResult[0].ToString();
+        displayTextF.text = FrequencyPuzzle.HertzResult[1].ToString();
+        displayTextG.text = FrequencyPuzzle.HertzResult[2].ToString();
+        displayTextH.text = FrequencyPuzzle.HertzResult[3].ToString();
+        displayTextI.text = LanguageTextBox.answerList[0].ToString();
+        displayTextJ.text = LanguageTextBox.answerList[1].ToString();
+        displayTextK.text = LanguageTextBox.answerList[2].ToString();
+        displayTextL.text = LanguageTextBox.answerList[3].ToString();
+        displayTextAA.text = ResultManager.resultXYZ[0].ToString();
+        displayTextBB.text = ResultManager.resultXYZ[1].ToString();
+        displayTextCC.text = ResultManager.resultXYZ[2].ToString();
     }
 }
