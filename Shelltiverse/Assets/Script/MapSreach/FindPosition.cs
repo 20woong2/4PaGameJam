@@ -36,12 +36,12 @@ public class FindPosition : MonoBehaviour, IPointerDownHandler
             }
             else if(Count == 2)
             {
-                orangeB = true;
+                yellowB = true;
                 Count = 0;
             }
             else if(Count == 1)
             {
-                yellowB = true;
+                orangeB = true;
                 Count = 0;
             }
             else if(Count == 0)
@@ -52,19 +52,19 @@ public class FindPosition : MonoBehaviour, IPointerDownHandler
         }
         if(greenB == true)
         {
-            targetImage.color = Color.green;
+            targetImage.color = new Color(55, 255, 0, 0.2f);
+        }
+        else if (yellowB == true)
+        {
+            targetImage.color = new Color(255, 238, 0, 0.2f);
         }
         else if(orangeB == true)
         {
-            targetImage.color = Color.orange;
-        }
-        else if(yellowB == true)
-        {
-            targetImage.color = Color.yellow;
+            targetImage.color = new Color(255, 199, 0, 0.2f);
         }
         else if(redB == true)
         {
-            targetImage.color = Color.red;
+            targetImage.color = new Color(255, 0, 0, 0.2f);
         }
     }
     // Update is called once per frame
