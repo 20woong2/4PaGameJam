@@ -104,6 +104,7 @@ public class FrequencyPuzzle : MonoBehaviour
             {
                 HertzResult[level-1] = (int)Mathf.Floor(hertzAM - hertzFR);
                 Debug.Log("Clear! : " + HertzResult[level-1]);
+                LanguageQuestion.SetQuestion(level - 1);
 
                 isClear = true;
                 timer = 0f;

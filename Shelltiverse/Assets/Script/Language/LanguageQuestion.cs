@@ -35,6 +35,7 @@ public class LanguageQuestion : MonoBehaviour
     }
     public static void SetQuestion(int num)
     {
+        Debug.Log("SetQuestion »£√‚µ ");
         questionLineUp.Add(questions[num]);
         if (instance != null)
         {
@@ -85,8 +86,8 @@ public class LanguageQuestion : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.A)) {
+        /*if (Input.GetKeyDown(KeyCode.A)) {
             SetQuestion(activeCount);
-        }
+        }*/
     }
 }
