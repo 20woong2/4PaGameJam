@@ -2,6 +2,7 @@ using TMPro;
 using UnityEngine;
 using System.Collections.Generic;
 using static UnityEngine.UI.Image;
+using System.Threading;
 
 public class LanguageQuestion : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class LanguageQuestion : MonoBehaviour
     public static List<string> questionLineUp = new List<string>();
     [SerializeField] private TextMeshProUGUI myText;
     private int activeCount = 0;
+    public static int waitCount = 0;
 
     void Awake()
     {
@@ -32,18 +34,34 @@ public class LanguageQuestion : MonoBehaviour
             questions[i] = ShiftASCII(questions[i], changeNums[i]);
         }
         myText.text = "NULL";
+        if(waitCount != 0)
+        {
+            Debug.Log("?? ? ?? ?? ?? ???");
+            for (int i = waitCount; i > 0; i--)
+            {
+                Debug.Log("??");
+                SetQuestion(waitCount - i);
+            }
+        }
     }
     public static void SetQuestion(int num)
     {
-        Debug.Log("SetQuestion »£√‚µ ");
+        Debug.Log("SetQuestion ???");
         questionLineUp.Add(questions[num]);
         if (instance != null)
         {
+            Debug.Log("ActivateNextUI ??");
             instance.ActivateNextUI(num);
+        }
+        else
+        {
+            Debug.Log("waitCount + 1");
+            waitCount++;
         }
     }
     private void ActivateNextUI(int num)
     {
+        Debug.Log("ActivateNextUI ??");
         activeCount++;
         string targetName = "Quest" + activeCount;
         Transform target = myCanvas.transform.Find(targetName);
@@ -51,16 +69,17 @@ public class LanguageQuestion : MonoBehaviour
         Transform numTransform = target.transform.Find(boxName);
         if (numTransform != null)
         {
-            Debug.Log("numTransform null æ∆¥‘");
+            Debug.Log("numTransform null ??");
             BoxReaction reaction = numTransform.GetComponent<BoxReaction>();
             if (reaction != null)
             {
-                Debug.Log("reaction null æ∆¥‘");
+                Debug.Log("reaction null ??");
                 reaction.thisNum = num;
             }
         }
         if (target != null)
         {
+            Debug.Log("???? ???");
             target.gameObject.SetActive(true);
             TextMeshProUGUI qText = target.GetComponentInChildren<TextMeshProUGUI>();
             if (qText != null)
