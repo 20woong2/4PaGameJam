@@ -28,7 +28,7 @@ public class WaveRenderer : MonoBehaviour
             float progress = (float)i / (points - 1);
             float x = progress * width + posX;
             // 사인파 공식: y = A * sin(f * x)
-            float y = amplitude * Mathf.Sin(x * frequency) + posY;
+            float y = amplitude * Mathf.Sin(x * frequency) * 0.7f + posY;
             lineRenderer.SetPosition(i, new Vector3(x, y, 0));
         }
     }
