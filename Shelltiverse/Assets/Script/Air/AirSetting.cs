@@ -9,13 +9,12 @@ public class AirSetting : MonoBehaviour
     void Start()
     {
         ShuffleToDest();
-        Debug.Log($"dest: {dest[0]}, {dest[1]}, {dest[2]}, {dest[3]}");
+        Debug.Log($"AirQuestion: {AirQuestion[0]}, {AirQuestion[1]}, {AirQuestion[2]}, {AirQuestion[3]}");
     }
 
-    // Update is called once per frame
-    void Update()
+    void ShuffleToDest()
     {
-        int length = source.Length; // 4
+        int length = AirOrigin.Length; // 4
         int[] indices = { 0, 1, 2, 3 };
 
         // Fisher-Yates ����
@@ -32,5 +31,10 @@ public class AirSetting : MonoBehaviour
         {
             AirQuestion[i] = AirOrigin[indices[i]];
         }
+    }
+    // Update is called once per frame
+    void Update()
+    {
+        
     }
 }
