@@ -10,10 +10,30 @@ public class FindPosition : MonoBehaviour, IPointerDownHandler
     private bool yellowB = false;
     private bool redB = false;
     [SerializeField] private Image targetImage;
+    [SerializeField] private GameObject AWorld;
+    [SerializeField] private GameObject AWorld1;
+    [SerializeField] private GameObject BWorld;
+    [SerializeField] private GameObject BWorld1;
+    [SerializeField] private GameObject CWorld;
+    [SerializeField] private GameObject CWorld1;
+    [SerializeField] private GameObject DWorld;
+    [SerializeField] private GameObject DWorld1;
+    public static bool firstturn = true;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        if(firstturn == true)
+        {
+            AWorld.SetActive(false);
+            AWorld1.SetActive(false);
+            BWorld.SetActive(false);
+            BWorld1.SetActive(false);
+            CWorld.SetActive(false);
+            CWorld1.SetActive(false);
+            DWorld.SetActive(false);
+            DWorld1.SetActive(false);
+        }
+        firstturn = false;
     }
 
     public void OnPointerDown(PointerEventData eventData)
@@ -31,6 +51,26 @@ public class FindPosition : MonoBehaviour, IPointerDownHandler
             if(Count == 3)
             {
                 greenB = true;
+                if(i==0)
+                {
+                    AWorld.SetActive(true);
+                    AWorld1.SetActive(true);
+                }
+                else if(i==1)
+                {
+                    BWorld.SetActive(false);
+                    BWorld1.SetActive(false);
+                }
+                else if(i==2)
+                {
+                    CWorld.SetActive(false);
+                    CWorld1.SetActive(false);
+                }
+                else if(i==3)
+                {
+                    DWorld.SetActive(false);
+                    DWorld1.SetActive(false);
+                }
                 Count = 0;
                 break;
             }

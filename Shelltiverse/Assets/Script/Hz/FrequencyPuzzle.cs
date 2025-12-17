@@ -33,8 +33,8 @@ public class FrequencyPuzzle : MonoBehaviour
     public AudioClip noise;
     public AudioClip morse;
 
-    public float correctAM;
-    public float correctFR;
+    public static float correctAM;
+    public static float correctFR;
 
     private float timer = 0f;
     private bool isClear = false;
@@ -47,40 +47,44 @@ public class FrequencyPuzzle : MonoBehaviour
     public static int[] HertzResult = new int[4];
     public static int level = 1;
     private int randNum;
-
+    public static bool firstturn = true;
 
 
 
     void Start()
     {
-
-        int length = 4; // 4
-        int[] indices = { 0, 1, 2, 3 };
-
-        // Fisher-Yates ����
-        for (int i = length - 1; i > 0; i--)
+        if(firstturn == true)
         {
-            int r = Random.Range(0, i + 1);
-            int temp = indices[i];
-            indices[i] = indices[r];
-            indices[r] = temp;
-        }
+            int length = 4; // 4
+            int[] indices = { 0, 1, 2, 3 };
 
+            // Fisher-Yates ����
+            for (int i = length - 1; i > 0; i--)
+            {
+                int r = Random.Range(0, i + 1);
+                int temp = indices[i];
+                indices[i] = indices[r];
+                indices[r] = temp;
+            }
+
+            
+            for (int i = 0; i < length; i++)
+            {
+                HzQuestion[i,0] = HzOrigin[indices[i],0];
+                HzQuestion[i,1] = HzOrigin[indices[i],1];
+                HzQuestion[i,2] = HzOrigin[indices[i],2];
+            }
+            // 정답 파형을 랜덤하게 설정 (예시)
+            // correctAM = Random.Range(0.1f, 2.9f);
+            // correctFR = Random.Range(0.1f, 2.9f);
+            correctAM = HzQuestion[0,0];
+            correctFR = HzQuestion[0,1];
+            targetWave.amplitude = correctAM;
+            targetWave.frequency = correctFR;
+            firstturn = false;
+        }
         
-        for (int i = 0; i < length; i++)
-        {
-            HzQuestion[i,0] = HzOrigin[indices[i],0];
-            HzQuestion[i,1] = HzOrigin[indices[i],1];
-            HzQuestion[i,2] = HzOrigin[indices[i],2];
-        }
-        // 정답 파형을 랜덤하게 설정 (예시)
-        // correctAM = Random.Range(0.1f, 2.9f);
-        // correctFR = Random.Range(0.1f, 2.9f);
-        correctAM = HzQuestion[0,0];
-        correctFR = HzQuestion[0,1];
-        targetWave.amplitude = correctAM;
-        targetWave.frequency = correctFR;
-
+            
         // 시작하자마자 소리 재생
         PlaySound("noise");
         PlaySound("morse");
@@ -126,8 +130,8 @@ public class FrequencyPuzzle : MonoBehaviour
         textFR.text = hertzFR.ToString("F0") + "Hz"; 
 
         // 레밸 변경 검사
-        if(oldLv != level) 
-        {
+        
+        
             // correctAM = Random.Range(0.1f, 2.9f);
             // correctFR = Random.Range(0.1f, 2.9f);
             if (level == 2) {
@@ -143,7 +147,7 @@ public class FrequencyPuzzle : MonoBehaviour
             
             targetWave.amplitude = correctAM;
             targetWave.frequency = correctFR;
-        }
+        
         displayTextA.text = HertzResult[0].ToString();
         displayTextB.text = HertzResult[1].ToString();
         displayTextC.text = HertzResult[2].ToString();
