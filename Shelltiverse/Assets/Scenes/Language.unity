@@ -569,6 +569,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LanguageTextBox
   inputField: {fileID: 1874771760}
+  displayTextA: {fileID: 1668933504}
+  displayTextB: {fileID: 863249023}
+  displayTextC: {fileID: 828590999}
+  displayTextD: {fileID: 1540784459}
 --- !u!4 &240099733
 Transform:
   m_ObjectHideFlags: 0
@@ -1007,7 +1011,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 495786193}
-  - component: {fileID: 495786199}
   - component: {fileID: 495786198}
   - component: {fileID: 495786197}
   - component: {fileID: 495786196}
@@ -1183,19 +1186,6 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 128, y: 128}
   m_EdgeRadius: 0
---- !u!114 &495786199
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 495786192}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: af927b42b4baabc408f62f88b13d634a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::MonitorClick
-  myIndex: 2
 --- !u!1 &652797596
 GameObject:
   m_ObjectHideFlags: 0
@@ -1230,7 +1220,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 588.00006, y: 97.49997}
+  m_AnchoredPosition: {x: 588.00006, y: 97.5}
   m_SizeDelta: {x: 128, y: 50}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &652797598
@@ -1341,7 +1331,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 698412771}
-  - component: {fileID: 698412777}
   - component: {fileID: 698412776}
   - component: {fileID: 698412775}
   - component: {fileID: 698412774}
@@ -1517,19 +1506,6 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 128, y: 128}
   m_EdgeRadius: 0
---- !u!114 &698412777
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 698412770}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: af927b42b4baabc408f62f88b13d634a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::MonitorClick
-  myIndex: 0
 --- !u!1 &710309127
 GameObject:
   m_ObjectHideFlags: 0
@@ -1975,7 +1951,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 804.0002, y: 97.49997}
+  m_AnchoredPosition: {x: 804.0002, y: 97.5}
   m_SizeDelta: {x: 128, y: 50}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &882728952
@@ -2495,7 +2471,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 966786627}
-  - component: {fileID: 966786633}
   - component: {fileID: 966786632}
   - component: {fileID: 966786631}
   - component: {fileID: 966786630}
@@ -2671,19 +2646,6 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 128, y: 128}
   m_EdgeRadius: 0
---- !u!114 &966786633
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 966786626}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: af927b42b4baabc408f62f88b13d634a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::MonitorClick
-  myIndex: 3
 --- !u!1 &1188820744
 GameObject:
   m_ObjectHideFlags: 0
@@ -3084,7 +3046,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 1236, y: 97.49997}
+  m_AnchoredPosition: {x: 1236, y: 97.5}
   m_SizeDelta: {x: 128, y: 50}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &1398161344
@@ -3781,7 +3743,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 1020, y: 97.49997}
+  m_AnchoredPosition: {x: 1020, y: 97.5}
   m_SizeDelta: {x: 128, y: 50}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &1599247864
@@ -4831,7 +4793,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2017651905}
-  - component: {fileID: 2017651911}
   - component: {fileID: 2017651910}
   - component: {fileID: 2017651909}
   - component: {fileID: 2017651908}
@@ -5007,19 +4968,6 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 128, y: 128}
   m_EdgeRadius: 0
---- !u!114 &2017651911
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2017651904}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: af927b42b4baabc408f62f88b13d634a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::MonitorClick
-  myIndex: 1
 --- !u!1 &2034583701
 GameObject:
   m_ObjectHideFlags: 0

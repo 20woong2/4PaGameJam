@@ -1,4 +1,6 @@
+using System;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class LanguageTextBox : MonoBehaviour
@@ -7,6 +9,10 @@ public class LanguageTextBox : MonoBehaviour
     int playerAnswer;
     public static int thisQuest;
     public static int[] answerList = new int[4];
+    [SerializeField] private TextMeshProUGUI displayTextA;
+    [SerializeField] private TextMeshProUGUI displayTextB;
+    [SerializeField] private TextMeshProUGUI displayTextC;
+    [SerializeField] private TextMeshProUGUI displayTextD;
     void Start()
     {
         inputField.onSubmit.AddListener(OnSubmitInput);
@@ -28,5 +34,12 @@ public class LanguageTextBox : MonoBehaviour
             inputField.text = "";
             inputField.ActivateInputField();
         }
+    }
+    void Update()
+    {
+        displayTextA.text = "" + answerList[0].ToString();
+        displayTextB.text = "" + answerList[1].ToString();
+        displayTextC.text = "" + answerList[2].ToString();
+        displayTextD.text = "" + answerList[3].ToString();
     }
 }
