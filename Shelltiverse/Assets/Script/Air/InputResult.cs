@@ -5,7 +5,6 @@ public class InputResult : MonoBehaviour
 {
     [SerializeField] private TMP_InputField inputField;
     
-    [SerializeField] private TextMeshProUGUI displayText;
     [SerializeField] private TextMeshProUGUI displayQ;
     [SerializeField] private TextMeshProUGUI displayTextA;
     [SerializeField] private TextMeshProUGUI displayTextB;
@@ -78,7 +77,6 @@ public class InputResult : MonoBehaviour
             Debug.LogWarning("AirResult 인덱스 범위 오류 또는 배열 null");
         }
 
-        displayText.text = "입력된 숫자: " + number;
         Debug.Log($"받은 숫자: {number}, AirResult[{airIndex}]에 저장됨");
     }
 }
