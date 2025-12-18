@@ -7,6 +7,7 @@ public class FindPosition : MonoBehaviour, IPointerDownHandler
 {
     [Header("UI")]
     [SerializeField] private Image targetImage;
+    public SceneLoader sceneLoader;
     
     [Header("World Objects")]
     [SerializeField] private GameObject[] worlds = new GameObject[4];
@@ -170,6 +171,7 @@ public class FindPosition : MonoBehaviour, IPointerDownHandler
             if (activeCount == 4)
             {
                 Debug.Log("? 모든 멀티버스 완전 해금! TRUE ENDING 가능!");
+                sceneLoader.LoadScene("Ending");
             }
         
     }

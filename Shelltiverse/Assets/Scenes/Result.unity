@@ -816,6 +816,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FindPosition
   targetImage: {fileID: 156699683}
+  sceneLoader: {fileID: 130571250}
   worlds:
   - {fileID: 641921799}
   - {fileID: 1378665899}
