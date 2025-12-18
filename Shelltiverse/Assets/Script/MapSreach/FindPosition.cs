@@ -88,7 +88,7 @@ public class FindPosition : MonoBehaviour, IPointerDownHandler
         Debug.Log("클릭 감지");
         
         // ? 3개 월드 활성화 체크 추가
-        CheckAllWorldsActivated();
+        
         
         int matchCount = 0;
         int perfectMatchIndex = -1;
@@ -145,6 +145,7 @@ public class FindPosition : MonoBehaviour, IPointerDownHandler
             DataManager.activatedWorlds[index] = 1;
         }
         Debug.Log($"World {index} 활성화됨");
+        CheckAllWorldsActivated();
     }
 
     private void InitializeAllWorlds(bool active)
@@ -165,7 +166,6 @@ public class FindPosition : MonoBehaviour, IPointerDownHandler
             if (isActive) activeCount++;
         }
         
-        Debug.Log($"현재 활성화된 월드: {activeCount}/4");
             // 보너스: 4개 모두 활성화 시
             if (activeCount == 4)
             {
